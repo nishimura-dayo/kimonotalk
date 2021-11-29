@@ -4,7 +4,8 @@
     <section class="firstview">
         <div class="home-icatch">
             <h1 class="home-headline">着物に関する疑問や悩み、色々あるよね。</h1>
-            <a href="#" class="btn-entry">はじめる</a>
+            {{-- ユーザ登録ページへのリンク --}}
+            {!! link_to_route('signup.get', 'はじめる', [], ['class' => 'btn-entry']) !!}
         </div>
     </section>
     <section class="home-menu">

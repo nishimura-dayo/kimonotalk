@@ -14,7 +14,7 @@
         @include('commons.navbar')
 
         {{-- エラーメッセージ --}}
-        @include('commons.error_messages')
+        {{-- @include('commons.error_messages') --}}
         
         @yield('content')
         
