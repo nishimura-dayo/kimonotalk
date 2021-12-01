@@ -17,9 +17,9 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             {{-- ユーザ詳細ページへのリンク --}}
-                            <li class="dropdown-item"><a href="#">マイページ</a></li>
+                            <li class="dropdown-item">{!! link_to_route('users.show', 'マイページ', ['user' => Auth::id()]) !!}</li>
                             {{-- ユーザ一覧ページへのリンク --}}
-                            <li class="dropdown-item"><a href="#"">ユーザ一覧</a></li>
+                            <li class="dropdown-item">{!! link_to_route('users.index', 'ユーザ一覧', []) !!}</li>
                             <li class="dropdown-divider"></li>
                             {{-- ログアウトへのリンク --}}
                             <li class="dropdown-item">{!! link_to_route('logout.get', 'ログアウト') !!}</li>
