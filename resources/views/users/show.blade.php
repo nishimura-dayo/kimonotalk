@@ -9,6 +9,8 @@
                 <p>{{ $user->name }}</p>
             </div>
             <div class="col-sm-8">
+                {{-- トピック一覧 --}}
+                @include('topics.topics')
             </div>
         </div>
     </div>

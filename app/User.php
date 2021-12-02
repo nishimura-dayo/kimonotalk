@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * このユーザが所有するトピック（Topicモデルとの関係を定義）
+     */
+    public function topics()
+    {
+        return $this->hasMany(Topic::class);
+    }
 }
