@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Topic;
+
 class TopicsController extends Controller
 {
     public function index()
@@ -38,6 +40,17 @@ class TopicsController extends Controller
 
         // 前のURLへリダイレクトさせる
         return back();
+    }
+
+    public function show($id)
+    {
+        // idの値でトピックを検索して取得
+        $topic = Topic::findOrFail($id);
+
+        // トピック詳細ビューでそれを表示
+        return view('topics.show', [
+            'topic' => $topic,
+        ]);
     }
 
     public function destroy($id)
