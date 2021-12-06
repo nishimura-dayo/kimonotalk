@@ -1,4 +1,4 @@
-
+ @if (count($topics) > 0)
     <ul class="list-unstyled">
         @foreach ($topics as $topic)
             <li class="media mb-3">
@@ -11,7 +11,7 @@
                 <div class="media-body">
                     <div>
                         {{-- トピック所有者のユーザ詳細ページへのリンク --}}
-                        {!! link_to_route('users.show', $topic->user->name, ['user' => $topic->user->id]) !!}
+                        {!! link_to_route('users.show', $topic->user->name, ['user' => $topic->user->id], ['class' => 'text_link']) !!}
                     </div>
                     <div>
                         {{-- トピック詳細ページへのリンク --}}
@@ -34,5 +34,6 @@
             </li>
         @endforeach
     </ul>
-    {{-- ページネーションのリンク --}}
-    {{ $topics->links() }}
+ @endif
+{{-- ページネーションのリンク --}}
+{{ $topics->links() }}

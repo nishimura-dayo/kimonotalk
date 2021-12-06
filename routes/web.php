@@ -31,3 +31,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('topics', 'TopicsController', ['only' => ['index',  'show', 'store', 'destroy']]);
     Route::resource('comments', 'CommentsController', ['only' => ['store', 'destroy']]);
 });
+
+

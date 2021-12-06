@@ -19,6 +19,13 @@ a:link,a:hover,a:active,a:visited {
         display: none;
     }
 }
+a.text_link {
+    color: #1d3994;
+    text-decoration: underline;
+}
+a.text_link:hover {
+    text-decoration: none;
+}
 
 /* title */
 .headline {
@@ -55,7 +62,12 @@ a.btn-entry:hover {
     box-shadow:0 2px 0 0 #7c2148;
     transform: translateY(-2px);
 }
-
+a.btn-primary {
+    color: #fff;
+}
+a.btn-primary:hover {
+    color: #fff;
+}
 @media screen and (min-width:576px) {
     a.btn-entry {
         width: 180px;
@@ -331,4 +343,19 @@ label {
 .topic_link {
     display:block;
     background-color:#ffffb8;
+}
+.topic_link:hover {
+    background-color:#f5e5ad;
+}
+/*詳細ページの内容*/
+.topic_content {
+    margin-bottom: 60px;
+}
+.topic_content h3{
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+.topic_text {
+    font-size: 16px;
+    font-weight: bold;
 }

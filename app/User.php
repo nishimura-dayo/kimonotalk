@@ -44,4 +44,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Topic::class);
     }
+
+    /**
+     * このユーザが所有するコメント(Commentモデルとの関係を定義)
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

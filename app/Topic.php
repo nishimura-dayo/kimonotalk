@@ -15,4 +15,12 @@ class Topic extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * このトピックにつくコメント(Commentモデルとの関係を定義)
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
