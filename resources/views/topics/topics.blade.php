@@ -1,4 +1,4 @@
- @if (count($topics) > 0)
+@if (count($topics) > 0)
     <ul class="list-unstyled">
         @foreach ($topics as $topic)
             <li class="media mb-3">
@@ -17,7 +17,7 @@
                         {{-- トピック詳細ページへのリンク --}}
                         <a href="{{ route('topics.show', ['topic' => $topic->id]) }}" class="topic_link">
                             {{-- トピック内容 --}}
-                            <p class="mb-0">{!! nl2br(e($topic->content)) !!}</p>
+                            <p class="mb-0">{!! nl2br(($topic->content)) !!}</p>
                             {{-- トピック日時 --}}
                             <span class="text-muted">{{ $topic->created_at }}</span>
                         </a>
@@ -34,6 +34,6 @@
             </li>
         @endforeach
     </ul>
- @endif
-{{-- ページネーションのリンク --}}
-{{ $topics->links() }}
+@endif
+    {{-- ページネーションのリンク --}}
+    {{ $topics->links() }}

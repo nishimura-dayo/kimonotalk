@@ -18,6 +18,9 @@
 
                     {{-- コメントフォーム --}}
                     @include('topics.form_comment')
+                    
+                    {{-- コメント一覧 --}}
+                     @include('topics.comments')
 
                     {{-- カテゴリ別トピック一覧ページへのリンク --}}
                     {!! link_to_route('topics.index', 'トピック一覧を見る',[], ['class' => 'text_link']) !!}

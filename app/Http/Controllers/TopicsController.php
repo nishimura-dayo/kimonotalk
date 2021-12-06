@@ -46,10 +46,14 @@ class TopicsController extends Controller
     {
         // idの値でトピックを検索して取得
         $topic = Topic::findOrFail($id);
+        
+        // 特定トピックについたコメント一覧を表示
+        $comments = $topic->comments()->paginate(10);
 
         // トピック詳細ビューでそれを表示
         return view('topics.show', [
             'topic' => $topic,
+            'comments' => $comments,
         ]);
     }
 
