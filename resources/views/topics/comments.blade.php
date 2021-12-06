@@ -14,6 +14,14 @@
                         {{-- コメント日時 --}}
                         <span class="text-muted">{{ $comment->created_at }}</span>
                      </div>
+                     <div>
+                        @if (Auth::id() == $comment->user_id)
+                            {{-- コメント削除ボタンのフォーム --}}
+                            {!! Form::open(['route' => ['comments.destroy', $comment->id], 'method' => 'delete']) !!}
+                                {!! Form::submit('削除する', ['class' => 'btn btn-danger btn-sm']) !!}
+                            {!! Form::close() !!}
+                        @endif
+                    </div>
                 </div>
             </li>
         @endforeach
