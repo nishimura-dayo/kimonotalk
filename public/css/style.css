@@ -340,16 +340,9 @@ label {
 /* ==================================================
  * トピック一覧
  * ================================================== */
-.topic_link {
-    display:block;
-    background-color:#ffffb8;
-}
-.topic_link:hover {
-    background-color:#f5e5ad;
-}
 /*詳細ページの内容*/
 .topic_content {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 .topic_content h3{
     font-size: 14px;
