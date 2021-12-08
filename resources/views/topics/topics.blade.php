@@ -1,9 +1,9 @@
 @if (count($topics) > 0)
-    <ul class="list-unstyled">
+    <ul class="topic-list list-unstyled">
         @foreach ($topics as $topic)
-            <li class="py-3 border-bottom">
+            <li class="topic-list-item">
                 {{-- トピック詳細ページへのリンク --}}
-                 <a href="{{ route('topics.show', ['topic' => $topic->id]) }}" class="row">
+                 <a href="{{ route('topics.show', ['topic' => $topic->id]) }}" class="row py-3">
                     <div class="col-2 topic-thumbnail">
                         トピック画像
                     </div>
@@ -18,5 +18,6 @@
         @endforeach
     </ul>
 @endif
-    {{-- ページネーションのリンク --}}
-    {{ $topics->links() }}
+
+{{-- ページネーションのリンク --}}
+{{ $topics->links() }}

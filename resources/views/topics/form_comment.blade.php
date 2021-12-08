@@ -1,3 +1,6 @@
+{{-- エラーメッセージ --}}
+@include('commons.error_messages')
+
 {!! Form::open(['route' => 'comments.store']) !!}
     <div class="form-graup mb-3">
         {!! Form::textarea('content', null, ['class' => 'form-control', 'rows' => '2']) !!}

@@ -7,8 +7,6 @@
         <section class="container">
             <div class="row">
                 <div class="col-sm-8 offset-sm-2">
-                    {{-- エラーメッセージ --}}
-                    @include('commons.error_messages')
                     {{-- トピックフォーム --}}
                     @include('topics.form')
                     {{-- トピック一覧 --}}

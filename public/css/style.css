@@ -9,6 +9,10 @@ body {
     font-weight: 300;
     line-height: 1.6;
     color: #555;
+    background-color: #FCF5F5;
+}
+img {
+    max-width: 100%;
 }
 a:link,a:hover,a:active,a:visited {
     color: #555;
@@ -79,6 +83,9 @@ a.btn-primary:hover {
 /* ==================================================
  * header
  * ================================================== */
+header {
+    background-color: #fff;
+}
 .site-logo {
     display: inline-block;
     padding-top: 0.3125rem;
@@ -88,7 +95,7 @@ a.btn-primary:hover {
     color: #333;
 }
 .navbar {
-    border-bottom: 5px solid #eee;
+    border-bottom: 2px solid #F7E4E4;
 }
 .nav-link {
     color: #333 !important;
@@ -105,12 +112,12 @@ a.btn-primary:hover {
  * footer 
  * ================================================== */
  footer {
-    background-color: #999;
+    background-color: #F7E4E4;
     text-align: center;
     padding: .3rem;
  }
   footer small {
-      color: #fff;
+      color: #444;
       font-size: .7rem;
   }
 /* ==================================================
@@ -251,7 +258,7 @@ a.btn-primary:hover {
 /* form-block */
 .form-wrap {
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #fff;
 }
 label {
     margin-bottom: 0;
@@ -297,9 +304,8 @@ label {
 @media screen and (min-width:576px) {
     .form-wrap {
         padding: 40px 60px;
-        border: 1px solid #ccc;
+        border: 2px solid #F7E4E4;
         border-radius: 10px;
-        background-color: #f4f4f4;
     }
     .btn-submit {
         font-size: 20px;
@@ -336,11 +342,44 @@ label {
     color: #4c7ebf;
 }
 
+/* ==================================================
+ * マイページ
+ * ================================================== */
 
 /* ==================================================
  * トピック一覧
  * ================================================== */
-/*詳細ページの内容*/
+.topic-list {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 5px;
+}
+.topic-list a:hover {
+    background-color: #f9f8f0;
+}
+.topic-list-item {
+    overflow: hidden;
+}
+.topic-list-item:nth-child(n+2) {
+    border-top: 1px solid #ddd;
+}
+
+/* ==================================================
+ * コメント一覧
+ * ================================================== */
+ .comment-list {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 5px;
+}
+.comment-list-item {
+    overflow: hidden;
+}
+.comment-list-item:nth-child(n+2) {
+    border-top: 1px solid #ddd;   
+}
 .topic_content {
     margin-bottom: 30px;
 }
