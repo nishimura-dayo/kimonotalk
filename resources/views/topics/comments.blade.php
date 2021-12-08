@@ -1,7 +1,7 @@
 @if (count($comments) > 0)
-    <ul class="list-unstyled">
+    <ul class="comment-list list-unstyled">
         @foreach ($comments as $comment)
-           <li class="media py-3 border-bottom">
+           <li class="comment-list-item media py-3">
                 {{-- コメント所有者のメールアドレスをもとにGravatarを取得して表示 --}}
                <div  class="user-thumbnail"><img src="{{ Gravatar::get($comment->user->email, ['size' => 120]) }}" alt=""></div>
                <div class="media-body">
