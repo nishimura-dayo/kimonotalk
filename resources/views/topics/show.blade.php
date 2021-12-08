@@ -9,10 +9,10 @@
             <div class="row">
                 <div class="col-sm-8 offset-sm-2">
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-3">
                             画像表示
                         </div>
-                        <div class="col-8">
+                        <div class="col-9">
                             <div class="row">
                                 <div class="col-2">
                                     {{-- トピック所有者のメールアドレスをもとにGravatarを取得して表示 --}}
