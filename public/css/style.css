@@ -88,13 +88,16 @@ a.btn-primary:hover {
 header {
     background-color: #fff;
 }
-.site-logo {
+a.site-logo {
     display: inline-block;
     padding-top: 0.3125rem;
     padding-bottom: 0.3125rem;
     font-size: 1.25rem;
     font-weight: 600;
     color: #333;
+}
+a.site-logo {
+    text-decoration: none;
 }
 .navbar {
     border-bottom: 2px solid #F7E4E4;
