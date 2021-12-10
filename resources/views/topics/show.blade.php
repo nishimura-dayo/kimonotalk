@@ -10,7 +10,8 @@
                 <div class="col-sm-8 offset-sm-2">
                     <div class="row">
                         <div class="col-3">
-                            画像表示
+                            {{-- トピック画像 --}}
+                            <img src=" {{ $topic->image_path }}" alt="">
                         </div>
                         <div class="col-9">
                             <div class="row">

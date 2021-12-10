@@ -32,22 +32,31 @@ class TopicsController extends Controller
         // バリデーション
         $request->validate([
             'content' => 'required|max:6000',// contentフィールドは必須チェック、6000文字以内かをチェックする
-            'photo_url' => ['file','mimes:jpeg,png,jpg,bmb','max:2048'],
+            'image_path' => ['file','mimes:jpeg,png,jpg,bmb','max:2048'],
         ]);
 
         // s3アップロード開始
-        $image = $request->file('photo_url');
-
-        // S3に画像をアップロードし、「S3上の画像の場所」を取得する
-        $path = Storage::disk('s3')->putFile('kimonotalk-s3disk', $image, 'public');
+        $image = $request->file('image_path');
         
-        // 「S3上の画像の場所」を元に、「Webページからアクセスできる画像のURL」を取得する
-        $photo_url = Storage::disk('s3')->url($path);
+        // 画像が無い場合
+        $image_path = null;
+        
+        // 画像ファイルが送信されたか確認
+        if ($request->hasFile('image_path')) {
+            
+            // S3に画像をアップロードし、「S3上の画像の場所」を取得する
+            $path = Storage::disk('s3')->putFile('kimonotalk-s3disk', $image, 'public');
+    
+            // 「S3上の画像の場所」を元に、「Webページからアクセスできる画像のURL」を取得する
+            $image_path = Storage::disk('s3')->url($path);
 
+        // }
+        }
+        
         // 認証済みユーザ（閲覧者）の投稿として作成（リクエストされた値をもとに作成）
         $request->user()->topics()->create([
             'content' => $request->content,
-            'photo_url' =>$photo_url,
+            'image_path' =>$image_path,
         ]);
 
         // 前のURLへリダイレクトさせる
@@ -76,10 +85,11 @@ class TopicsController extends Controller
 
         // 認証済みユーザ（閲覧者）がその投稿の所有者である場合は、投稿を削除
         if (\Auth::id() === $topic->user_id) {
+            Storage::disk('s3')->delete($topic->image_path);
             $topic->delete();
         }
-
-        // 前のURLへリダイレクトさせる
-        return back();
+       
+        // メッセージ作成ビューを表示
+        return redirect('topics');
     }
 }

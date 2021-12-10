@@ -17,7 +17,7 @@ class CreateTopicsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->text('content');
-            $table->text('photo_url')->nullable();
+            $table->text('image_path')->nullable();
             $table->timestamps();
             
             // 外部キー制約
