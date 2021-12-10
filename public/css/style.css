@@ -405,7 +405,7 @@ label {
     border-radius: 5px;
     border: 2px solid #F7E4E4;
     padding: 20px 20px 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 a.topic-user-name {
     color: #333;
@@ -470,6 +470,7 @@ a.topic-user-name:hover {
     font-weight: bold;
     padding-bottom: 10px;
 }
+.topic-time,
 .topic-list-time {
     font-size: 12px;
     color: #666;
@@ -486,14 +487,22 @@ a.topic-user-name:hover {
 .comment-list {
     background-color: #fff;
     padding: 20px;
-    margin-top: 30px;
     border-radius: 5px;
+    border: 2px solid #F7E4E4;
 }
 .comment-list-item {
     overflow: hidden;
+    padding: 20px 0 10px;
 }
 .comment-list-item:nth-child(n+2) {
     border-top: 1px solid #ddd;   
+}
+.comment-list-text {
+    font-size: 16px;
+}
+.comment-list-time {
+    font-size: 12px;
+    color: #666;
 }
 
 /* ==================================================
@@ -505,5 +514,5 @@ a.topic-user-name:hover {
     border-radius: 5px;
     border: 2px solid #F7E4E4;
     padding: 20px 20px 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }

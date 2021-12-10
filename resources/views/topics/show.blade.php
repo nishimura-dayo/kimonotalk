@@ -34,7 +34,7 @@
                                             {!! link_to_route('users.show', $topic->user->name, ['user' => $topic->user->id], ['class' => 'topic-user-name']) !!}
                                         </div>
                                         {{-- トピック日時 --}}
-                                        <span class="text-muted">{{ $topic->created_at }}</span>
+                                        <span class="topic-time">{{ $topic->created_at }}</span>
                                     </div>
                                 </div>
                                 <div class="topic_content">
