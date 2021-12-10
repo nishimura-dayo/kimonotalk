@@ -3,7 +3,7 @@
 
 {!! Form::open(['route' => 'topics.store','enctype'=>'multipart/form-data']) !!}
     <div class="form-graup">
-        {!! Form::textarea('content', null, ['class' => 'form-control', 'rows' => '3', 'placeholder' => '気になることを書いてみてね♪']) !!}
+        {!! Form::textarea('content', null, ['class' => 'form-textarea', 'rows' => '3', 'placeholder' => '気になることを書いてみてね♪']) !!}
         <div class="toolbar">
             <!-- アップロードフォームの作成 -->
             {!! Form::file('image_path', ['class' => 'btn btn-upload']) !!}
