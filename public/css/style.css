@@ -66,6 +66,7 @@ a.btn-entry {
 a.btn-entry:hover {
     color: #fff;
     box-shadow:0 2px 0 0 #7c2148;
+    text-decoration: none;
     transform: translateY(-2px);
 }
 a.btn-primary {
@@ -112,15 +113,23 @@ a.btn-primary:hover {
     box-shadow: none;
     border-radius: 5px;
 }
-.form-control {
-    border: none;
+.form-textarea {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
     font-size: 16px;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: none;
 }
-.form-control:hover,
-.form-control:focus {
+.form-textarea:hover,
+.form-textarea:focus {
     box-shadow: none;
+    outline: none;
 }
-.form-control::placeholder {
+.form-textarea::placeholder {
   color: #ccc;
 }
 
@@ -153,6 +162,9 @@ a.site-logo {
 }
 .navbar-toggler {
     border: none;
+}
+.dropdown-item a {
+    text-decoration: none;
 }
 
 /* ==================================================
