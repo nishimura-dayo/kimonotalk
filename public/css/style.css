@@ -81,6 +81,27 @@ a.btn-primary:hover {
         padding: 13px 0;
     }
 }
+/* toolbar */
+.toolbar {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    margin-top: 20px;
+}
+.btn-submit-post {
+    color: #445FA3;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px;
+}
+.btn-submit-post:hover,
+.btn-submit-post:focus {
+    color: #445FA3;
+    background-color: #eee;
+    box-shadow: none;
+    border-radius: 5px;
+}
 
 /* ==================================================
  * header
@@ -352,8 +373,29 @@ label {
  * ================================================== */
 
 /* ==================================================
- * トピック一覧
+ * トピック詳細(topic-single)
  * ================================================== */
+.topic-single {
+    padding: 40px 0 100px;
+}
+.topic-detail {
+    position: relative;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 2px solid #F7E4E4;
+    padding: 20px 20px 10px;
+    margin-bottom: 30px;
+}
+a.topic-user-name {
+    color: #333;
+    text-decoration: none;
+}
+a.topic-user-name:hover {
+    text-decoration: underline;
+}
+.topic_content {
+    padding-top: 20px;
+}
 .topic-list {
     background-color: #fff;
     padding: 20px;
@@ -414,7 +456,11 @@ label {
 /* ==================================================
  * コメント一覧
  * ================================================== */
- .comment-list {
+.topic-image img {
+    width: 100%;
+    border-radius: 5px;
+}
+.comment-list {
     background-color: #fff;
     padding: 20px;
     margin-top: 30px;
