@@ -1,7 +1,7 @@
 {{-- エラーメッセージ --}}
 @include('commons.error_messages')
 
-{!! Form::open(['route' => 'comments.store']) !!}
+{!! Form::open(['route' => 'comments.store','enctype'=>'multipart/form-data']) !!}
     <div class="form-graup">
         {!! Form::textarea('content', null, ['class' => 'form-textarea', 'rows' => '2', 'placeholder' => 'コメントしてみる？']) !!}
         {{ Form::hidden('topic_id', $topic->id) }}

@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Topic;
+use Storage;
 
 class CommentsController extends Controller
 {
     
     public function store(Request $request)
     {
+        // dd($request->file('image_path')); // フォームから送信されたimage_pathをファイル形式で取得できるか
         // バリデーション
         $request->validate([
             'content' => 'required|max:6000',// contentフィールドは必須チェック、6000文字以内かをチェックする
