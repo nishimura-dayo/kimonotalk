@@ -11,6 +11,12 @@
                     <div>
                         {{-- コメント内容 --}}  
                         <p class="comment-list-text">{{ $comment->content }}</p>
+                        
+                        @if(isset( $comment->image_path ))
+                            {{-- トピック画像がある場合 --}}
+                            <p><img src=" {{ $comment->image_path }}" alt=""></p>
+                        @endif
+               
                         {{-- コメント日時 --}}
                         <span class="comment-list-time">{{ $comment->created_at }}</span>
                     </div>

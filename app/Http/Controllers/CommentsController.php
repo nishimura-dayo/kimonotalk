@@ -14,7 +14,24 @@ class CommentsController extends Controller
         // バリデーション
         $request->validate([
             'content' => 'required|max:6000',// contentフィールドは必須チェック、6000文字以内かをチェックする
+            'image_path' => ['file','mimes:jpeg,png,jpg,bmb','max:2048'],
         ]);
+
+        // s3アップロード開始
+        $image = $request->file('image_path');
+        
+        // 画像が無い場合
+        $image_path = null;
+        
+        // 画像ファイルが送信されたか確認
+        if ($request->hasFile('image_path')) {
+            
+            // S3に画像をアップロードし、「S3上の画像の場所」を取得する
+            $path = Storage::disk('s3')->putFile('kimonotalk-s3disk', $image, 'public');
+           
+            // 「S3上の画像の場所」を元に、「Webページからアクセスできる画像のURL」を取得する
+            $image_path = Storage::disk('s3')->url($path);
+        }
 
         // idの値でトピックを検索して取得
         $topic = Topic::findOrFail( $request->topic_id);
@@ -23,14 +40,13 @@ class CommentsController extends Controller
         $topic->comments()->create([
             'user_id' => \Auth::id(),
             'content' => $request->content,
+            'image_path' =>$image_path,
         ]);
 
         // 前のURLへリダイレクトさせる
         return back();
     }
-    
 
-    
     public function destroy($id)
     {
         // idの値でコメントを検索して取得
@@ -38,9 +54,10 @@ class CommentsController extends Controller
         
         // 認証済みユーザ(閲覧者)がそのコメントの所有者である場合は、コメントを削除
         if (\Auth::id() === $comment->user_id) {
+            Storage::disk('s3')->delete( $comment->image_path );
             $comment -> delete();
         }
-        
+
         // 前のURLへリダイレクトさせる
         return back();
     }
