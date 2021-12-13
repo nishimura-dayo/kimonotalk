@@ -30,6 +30,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
     Route::resource('topics', 'TopicsController', ['only' => ['index',  'show', 'store', 'destroy']]);
     Route::resource('comments', 'CommentsController', ['only' => ['store', 'destroy']]);
+    Route::put('users/avator_update', 'UsersController@avatorUpdate')->name('users.avatorUpdate');
 });
-
-
