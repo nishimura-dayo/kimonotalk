@@ -106,6 +106,7 @@ a.btn-primary:hover {
 .toolbar {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     border-top: 1px solid #ddd;
     padding-top: 10px;
     margin-top: 20px;
@@ -115,6 +116,7 @@ a.btn-primary:hover {
     font-weight: bold;
     font-size: 14px;
     padding: 10px;
+    margin-left: 10px;
 }
 .btn-submit-post:hover,
 .btn-submit-post:focus {
