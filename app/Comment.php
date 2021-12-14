@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
 
-    protected $fillable = ['content','user_id','image_path'];
+    protected $fillable = ['content','user_id','image_path','s3_path'];
     
     /**
      * このコメントを所有するユーザ。（ Userモデルとの関係を定義）

@@ -34,7 +34,7 @@ class CommentsController extends Controller
             // 「S3上の画像の場所」を元に、「Webページからアクセスできる画像のURL」を取得する
             $image_path = Storage::disk('s3')->url($path);
         }
-
+    
         // idの値でトピックを検索して取得
         $topic = Topic::findOrFail( $request->topic_id);
         
@@ -42,7 +42,8 @@ class CommentsController extends Controller
         $topic->comments()->create([
             'user_id' => \Auth::id(),
             'content' => $request->content,
-            'image_path' =>$image_path,
+            'image_path' => $image_path,
+            's3_path' => $path,
         ]);
 
         // 前のURLへリダイレクトさせる
@@ -56,7 +57,7 @@ class CommentsController extends Controller
         
         // 認証済みユーザ(閲覧者)がそのコメントの所有者である場合は、コメントを削除
         if (\Auth::id() === $comment->user_id) {
-            Storage::disk('s3')->delete( $comment->image_path );
+            Storage::disk('s3')->delete($comment->s3_path);
             $comment -> delete();
         }
 
