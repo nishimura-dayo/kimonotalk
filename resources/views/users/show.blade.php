@@ -6,27 +6,29 @@
             <div class="col-sm-8 offset-sm-2">
                 <div class="row">
             <div class="col-sm-3">
-                <div class="personal-photo">
-                    @if(isset( $user->image_path ))
-                        {{-- プロフィール画像がある場合 --}}
-                        <img src=" {{ $user->image_path }}" alt="">
-                    @else
-                        {{-- プロフィール画像がない場合 --}}
-                        <img src="{{ asset('image/no-image.png') }}" alt="">
+                <div class="profile">
+                    <div class="profile-photo">
+                        @if(isset( $user->image_path ))
+                            {{-- プロフィール画像がある場合 --}}
+                            <img src=" {{ $user->image_path }}" alt="">
+                        @else
+                            {{-- プロフィール画像がない場合 --}}
+                            <img src="{{ asset('image/no-image.png') }}" alt="">
+                        @endif
+                    </div>
+    
+                    @if (Auth::id() == $user->id)
+                        {{-- プロフィール画像編集 --}}
+                        {!! Form::open(['route' => 'users.avatorUpdate','enctype'=>'multipart/form-data', 'method' => 'PUT']) !!}
+                            {{-- アップロードフォームの作成--}}
+                            <label for="file" class="label-photo profile-label-photo"><i class="fas fa-camera"></i></label>
+                            {!! Form::file('image_path', ['id' => 'file', 'class' => 'input-photo']) !!}
+                            {!! Form::submit('変更', ['class' => 'btn profile-photo-submit']) !!}
+                        {!! Form::close() !!}
                     @endif
+                    
+                    <p class="profile-name">{{ $user->name }}</p>
                 </div>
-
-                @if (Auth::id() == $user->id)
-                    {{-- プロフィール画像編集 --}}
-                    {!! Form::open(['route' => 'users.avatorUpdate','enctype'=>'multipart/form-data', 'method' => 'PUT']) !!}
-                        {{-- アップロードフォームの作成--}}
-                        <label for="file" class="label-photo"><i class="fas fa-camera"></i></label>
-                        {!! Form::file('image_path', ['id' => 'file', 'class' => 'input-photo']) !!}
-                        {!! Form::submit('送信する', ['class' => 'btn btn-sm btn-info']) !!}
-                    {!! Form::close() !!}
-                @endif
-
-                <p class="text-center">{{ $user->name }}</p>
             </div>
             <div class="col-sm-9">
                 {{-- トピック一覧 --}}

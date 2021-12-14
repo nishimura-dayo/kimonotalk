@@ -396,8 +396,52 @@ label {
 }
 
 /* ==================================================
- * users
+ * マイページ(users)
  * ================================================== */
+ /* プロフィール */
+ .profile {
+    position: relative;
+    width: 120px;
+ }
+ .profile-photo {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+ .profile-photo img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    object-fit: cover;
+    border-radius: 50%;
+ }
+ .profile-label-photo {
+    position: absolute;
+    top: 90px;
+    right: 10px;
+    border: 1px solid #fff;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .12);
+ }
+.profile-photo-submit {
+    position: absolute;
+    display: block;
+    top: 100px;
+    right: -15px;
+    font-size: 10px;
+    color: #445FA3;
+    text-decoration: underline;
+    padding: 0;
+ }
+.profile-photo-submit:hover {
+    color: #445FA3;
+}
+.profile-name {
+    text-align: center;
+    margin-top: 10px;
+}
+ 
+ /* マイページ用でなく個人特定する情報 */
 .users {
     padding: 40px 0 100px;
 }
@@ -423,9 +467,7 @@ label {
     color: #4c7ebf;
 }
 
-/* ==================================================
- * マイページ
- * ================================================== */
+
 
 /* ==================================================
  * トピック詳細(topic-single)
