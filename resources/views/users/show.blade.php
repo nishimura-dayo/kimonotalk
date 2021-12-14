@@ -19,8 +19,9 @@
                 @if (Auth::id() == $user->id)
                     {{-- プロフィール画像編集 --}}
                     {!! Form::open(['route' => 'users.avatorUpdate','enctype'=>'multipart/form-data', 'method' => 'PUT']) !!}
-                        <!-- アップロードフォームの作成 -->
-                        {!! Form::file('image_path', ['class' => '']) !!}
+                        {{-- アップロードフォームの作成--}}
+                        <label for="file" class="label-photo"><i class="fas fa-camera"></i></label>
+                        {!! Form::file('image_path', ['id' => 'file', 'class' => 'input-photo']) !!}
                         {!! Form::submit('送信する', ['class' => 'btn btn-sm btn-info']) !!}
                     {!! Form::close() !!}
                 @endif

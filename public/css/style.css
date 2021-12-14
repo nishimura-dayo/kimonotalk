@@ -82,6 +82,26 @@ a.btn-primary:hover {
         padding: 13px 0;
     }
 }
+
+/* botton:photo */
+.label-photo {
+    background-color: #445FA3;
+    color: #fff;
+    font-size: 16px;
+    padding-top: 2px;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: all 0.5s;
+}
+.label-photo:hover {
+    background-color: #7b8ebf;
+}
+.input-photo {
+     display: none;
+}
+
 /* toolbar */
 .toolbar {
     display: flex;
@@ -528,3 +548,6 @@ a.topic-user-name:hover {
     padding: 20px 20px 10px;
     margin-bottom: 20px;
 }
+
+
+
