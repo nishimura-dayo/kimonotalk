@@ -24,6 +24,7 @@ class CommentsController extends Controller
         
         // 画像が無い場合
         $image_path = null;
+        $s3_path = null;
         
         // 画像ファイルが送信されたか確認
         if ($request->hasFile('image_path')) {
