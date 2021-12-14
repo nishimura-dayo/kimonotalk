@@ -2,7 +2,8 @@
     <ul class="user-list">
         @foreach ($users as $user)
             <li class="user-list-item">
-                
+                {{-- ユーザ詳細ページへのリンク --}}
+                 <a href="{{ route('users.show', ['user' => $user->id]) }}" class="user-list-item-link">
                 <div class="user-thumbnail">
                     @if(isset( $user->image_path ))
                         {{-- プロフィール画像がある場合 --}}
@@ -14,11 +15,9 @@
                 </div>
 
                 <div class="user-text">
-                    <div>
-                        {{-- ユーザ詳細ページへのリンク --}}
-                        {!! link_to_route('users.show', $user->name, ['user' => $user->id]) !!}
-                    </div>
+                    <div>{{ $user->name }}</div>
                 </div>
+                </a>
             </li>
         @endforeach
     </ul>

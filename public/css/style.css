@@ -407,13 +407,26 @@ label {
 }
 .user-list {
     list-style: none;
-    padding: 0;
+    background-color: #fff;
+    padding: 5px 10px;
+    margin-top: 30px;
+    border-radius: 5px;
+    border: 2px solid #F7E4E4;
 }
 .user-list-item {
+    padding: 5px 0;
+}
+.user-list-item:nth-child(n+2) {
+    border-top: 1px solid #ddd;
+}
+.user-list-item-link {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #ccc;
-    padding: 5px 0;
+    padding: 5px;
+}
+.user-list-item-link:hover {
+    text-decoration: none;
+    background-color: #f5f5f5;
 }
 .user-thumbnail {
     position: relative;
