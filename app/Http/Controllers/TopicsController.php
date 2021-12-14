@@ -40,23 +40,23 @@ class TopicsController extends Controller
         
         // 画像が無い場合
         $image_path = null;
-        
+        $s3_path = null;
+
         // 画像ファイルが送信されたか確認
         if ($request->hasFile('image_path')) {
             
             // S3に画像をアップロードし、「S3上の画像の場所」を取得する
-            $path = Storage::disk('s3')->putFile('kimonotalk-s3disk', $image, 'public');
-    
+            $s3_path = Storage::disk('s3')->putFile('kimonotalk-s3disk', $image, 'public');
+           
             // 「S3上の画像の場所」を元に、「Webページからアクセスできる画像のURL」を取得する
-            $image_path = Storage::disk('s3')->url($path);
-
-        // }
+            $image_path = Storage::disk('s3')->url($s3_path);
         }
         
         // 認証済みユーザ（閲覧者）の投稿として作成（リクエストされた値をもとに作成）
         $request->user()->topics()->create([
             'content' => $request->content,
-            'image_path' =>$image_path,
+            'image_path' => $image_path,
+            's3_path' => $s3_path,
         ]);
 
         // 前のURLへリダイレクトさせる
@@ -85,7 +85,7 @@ class TopicsController extends Controller
 
         // 認証済みユーザ（閲覧者）がその投稿の所有者である場合は、投稿を削除
         if (\Auth::id() === $topic->user_id) {
-            Storage::disk('s3')->delete($topic->image_path);
+            Storage::disk('s3')->delete($topic->s3_path);
             $topic->delete();
         }
        

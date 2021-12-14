@@ -18,6 +18,7 @@ class CreateTopicsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->text('content');
             $table->text('image_path')->nullable();
+            $table->text('s3_path')->nullable();
             $table->timestamps();
             
             // 外部キー制約
