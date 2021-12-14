@@ -29,10 +29,10 @@ class CommentsController extends Controller
         if ($request->hasFile('image_path')) {
             
             // S3に画像をアップロードし、「S3上の画像の場所」を取得する
-            $path = Storage::disk('s3')->putFile('kimonotalk-s3disk', $image, 'public');
+            $s3_path = Storage::disk('s3')->putFile('kimonotalk-s3disk', $image, 'public');
            
             // 「S3上の画像の場所」を元に、「Webページからアクセスできる画像のURL」を取得する
-            $image_path = Storage::disk('s3')->url($path);
+            $image_path = Storage::disk('s3')->url($s3_path);
         }
     
         // idの値でトピックを検索して取得
@@ -43,7 +43,7 @@ class CommentsController extends Controller
             'user_id' => \Auth::id(),
             'content' => $request->content,
             'image_path' => $image_path,
-            's3_path' => $path,
+            's3_path' => $s3_path,
         ]);
 
         // 前のURLへリダイレクトさせる
