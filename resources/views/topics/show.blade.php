@@ -45,14 +45,15 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- ログイン中、投稿者の場合 --}}
+                        @if (Auth::id() == $topic->user_id)
                         <div class="toolbar">
-                            @if (Auth::id() == $topic->user_id)
-                                {{-- トピック削除ボタンのフォーム --}}
-                                {!! Form::open(['route' => ['topics.destroy', $topic->id], 'method' => 'delete']) !!}
-                                    {!! Form::submit('トピックを削除する', ['class' => 'btn btn-submit-post']) !!}
-                                {!! Form::close() !!}
-                            @endif
-                        </div>
+                            {{-- トピック削除ボタンのフォーム --}}
+                            {!! Form::open(['route' => ['topics.destroy', $topic->id], 'method' => 'delete']) !!}
+                                {!! Form::submit('トピックを削除する', ['class' => 'btn btn-submit-post']) !!}
+                            {!! Form::close() !!}
+                            </div>
+                        @endif
                     </div>
                     {{-- コメントフォーム --}}
                     @include('topics.form_comment')
