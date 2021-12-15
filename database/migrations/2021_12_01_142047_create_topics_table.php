@@ -16,6 +16,7 @@ class CreateTopicsTable extends Migration
         Schema::create('topics', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('category_id');
             $table->text('content');
             $table->text('image_path')->nullable();
             $table->text('s3_path')->nullable();
@@ -23,6 +24,7 @@ class CreateTopicsTable extends Migration
             
             // 外部キー制約
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 
