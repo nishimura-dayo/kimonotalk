@@ -293,6 +293,7 @@ a.site-logo {
 .home-category-name a:hover {
     opacity: .7;
     transition: 0.3s all;
+    text-decoration: none;
 }
 @media screen and (min-width:576px) {
     .home-menu {
