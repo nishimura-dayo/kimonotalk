@@ -23,4 +23,12 @@ class Topic extends Model
     {
         return $this->hasMany(Comment::class);
     }
+    
+    /**
+     * このコメントを所有するカテゴリ(Categoryモデルとの関係を定義)
+     */
+    public function categories()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
