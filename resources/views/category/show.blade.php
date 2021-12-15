@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <div class="topic-single">
-        <h1 class="headline">{{ $category->content }}</h1>
+    <div class="category">
+        <h1 class="category-headline">{{ $category->content }}<span class="category-headline-suffix">に関するトピック​​</span></h1>
     </div>
-
 @endsection
