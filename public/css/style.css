@@ -243,84 +243,6 @@ a.site-logo {
     }
 }
 
-/* menu */
-.home-menu {
-    margin: 20px auto 40px;
-    text-align: center;
-}
-@media (min-width: 992px) {.home-menu {max-width: 960px;}}
-@media (min-width: 1200px){.home-menu {max-width: 1140px;}}
-.home-title {
-    font-size: 1rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
-.home-menu-list {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-.home-menu-list-item {
-    width: calc(100% / 2 - 1px);
-    margin-bottom: 10px;
-}
-.home-menu-list-item:nth-child(even) {
-    margin-left: 2px;
-}
-.home-category-name a {
-    display: block;
-    background-color: #eee;
-    background-position: center top;
-	background-repeat: no-repeat;
-	background-size: auto 100%;
-	height:100px;
-	line-height: 100px;
-	color: #fff;
-	font-size: 18px;
-	text-shadow: 1px 2px 3px rgba(0, 0, 0, .2);
-	overflow: hidden;
-}
-.home-menu-btn1 {background-image: url(../image/home-menu1.jpg)}
-.home-menu-btn2 {background-image: url(../image/home-menu2.jpg)}
-.home-menu-btn3 {background-image: url(../image/home-menu3.jpg)}
-.home-menu-btn4 {background-image: url(../image/home-menu4.jpg)}
-.home-menu-btn5 {background-image: url(../image/home-menu5.jpg)}
-.home-menu-btn6 {background-image: url(../image/home-menu6.jpg)}
-.home-category-text {
-    font-size: .7rem;
-    margin-top: 5px;
-}
-.home-category-name a:hover {
-    opacity: .7;
-    transition: 0.3s all;
-    text-decoration: none;
-}
-@media screen and (min-width:576px) {
-    .home-menu {
-        margin: 60px auto;
-        text-align: center;
-    }
-    .home-menu-list {
-        padding: 0 15px;
-    }
-    .home-menu-list-item {
-        width: calc(100% / 3);
-        margin-bottom: 10px;
-        margin-left: 0 !important;
-    }
-    .home-category-name {
-        padding: 0 15px;
-    }
-    .home-category-name a {
-    	height: 140px;
-    	font-size: 20px;
-    	line-height: 140px;
-    }
-    .home-category-text {
-        font-size: .8rem;
-    }
-}
-
 /* ==================================================
  * signup,login
  * ================================================== */
@@ -492,7 +414,28 @@ label {
     text-align: center;
     margin-top: 10px;
 }
-
+/* categoryボタン */
+a.btn-category {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    color: #fff;
+    font-size: 16px;
+    line-height: 1;
+    border-radius: 5px;
+    text-align: center;
+    padding: 20px 0;
+    background: #CC3877;
+    box-shadow: 0 4px 0 0 #7c2148;
+    transform: translateY(-4px);
+    transition: 0.3s all;
+}
+a.btn-category:hover {
+    color: #fff;
+    box-shadow:0 2px 0 0 #7c2148;
+    text-decoration: none;
+    transform: translateY(-2px);
+}
 /* ==================================================
  * トピック詳細(topic-single)
  * ================================================== */
@@ -621,7 +564,7 @@ a.topic-user-name:hover {
  * カテゴリ一覧(category)
  * ================================================== */
 .category {
-    padding: 0 0 100px;
+    padding: 0;
 }
 .category-headline {
     text-align: center;
@@ -647,12 +590,16 @@ a.topic-user-name:hover {
     font-size: 14px;
 }
 @media screen and (min-width:576px) {
+    .category {
+        padding: 0 0 100px;
+    }
     .category-headline {
         padding: 15px 0 25px;
         background-position: center top;
     	background-repeat: no-repeat;
     	background-size: cover;
     	font-size: 40px;
+    	margin-bottom: 60px;
     }
     .category-headline-suffix {
         font-size: 20px;
@@ -664,17 +611,8 @@ a.topic-user-name:hover {
     margin: 20px auto 40px;
     text-align: center;
 }
-@media (min-width: 992px) {
-    .category-list-wrap {
-        max-width: 960px;
-        margin: 60px auto;
-    }
-}
-@media (min-width: 1200px){
-    .category-list-wrap {
-        max-width: 1140px;
-    }
-}
+@media (min-width: 992px) {.category-list-wrap {max-width: 960px;}}
+@media (min-width: 1200px){.category-list-wrap {max-width: 1140px;}}
 .category-list {
     display: flex;
     flex-wrap: wrap;

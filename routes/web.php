@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
-// Route::get('/', 'TopicsController@index');
+Route::get('/', 'CategoriesController@index');
 
 // ユーザ登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
@@ -31,5 +31,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('topics', 'TopicsController', ['only' => ['index',  'show', 'store', 'destroy']]);
     Route::resource('comments', 'CommentsController', ['only' => ['store', 'destroy']]);
     Route::put('users/avator_update', 'UsersController@avatorUpdate')->name('users.avatorUpdate');
-    Route::resource('category', 'CategoriesController', ['only' => ['index', 'show']]);
+    Route::resource('categories', 'CategoriesController', ['only' => ['index', 'show']]);
 });
