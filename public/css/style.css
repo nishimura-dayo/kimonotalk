@@ -15,7 +15,7 @@ img {
     max-width: 100%;
 }
 a {
-    color: #445FA3;
+    color: #CC3877;
     text-decoration: none;
 }
 a:visited {
@@ -85,7 +85,7 @@ a.btn-primary:hover {
 
 /* botton:photo */
 .label-photo {
-    background-color: #445FA3;
+    background-color: #CC3877;
     color: #fff;
     font-size: 16px;
     padding-top: 2px;
@@ -96,7 +96,7 @@ a.btn-primary:hover {
     transition: all 0.5s;
 }
 .label-photo:hover {
-    background-color: #7b8ebf;
+    background-color: #f35f9e;
 }
 .input-photo {
      display: none;
@@ -112,7 +112,7 @@ a.btn-primary:hover {
     margin-top: 20px;
 }
 .btn-submit-post {
-    color: #445FA3;
+    color: #CC3877;
     font-weight: bold;
     font-size: 14px;
     padding: 10px;
@@ -120,7 +120,7 @@ a.btn-primary:hover {
 }
 .btn-submit-post:hover,
 .btn-submit-post:focus {
-    color: #445FA3;
+    color: #CC3877;
     background-color: #eee;
     box-shadow: none;
     border-radius: 5px;
@@ -412,12 +412,12 @@ label {
     top: 100px;
     right: -15px;
     font-size: 10px;
-    color: #445FA3;
+    color: #CC3877;
     text-decoration: underline;
     padding: 0;
  }
 .profile-photo-submit:hover {
-    color: #445FA3;
+    color: #CC3877;
 }
 .profile-name {
     text-align: center;
@@ -438,6 +438,7 @@ a.btn-category {
     box-shadow: 0 4px 0 0 #7c2148;
     transform: translateY(-4px);
     transition: 0.3s all;
+    margin-bottom: 30px;
 }
 a.btn-category:hover {
     color: #fff;
@@ -476,7 +477,7 @@ a.topic-user-name:hover {
     border: 2px solid #F7E4E4;
 }
 .topic-list a:hover {
-    background-color: #f9f8f0;
+    background-color: #fcf5f5;
 }
 .topic-list-item:nth-child(n+2) {
     border-top: 1px solid #ddd;
