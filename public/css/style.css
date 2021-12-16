@@ -21,10 +21,11 @@ a {
 a:visited {
     color: #80879B;
 }
-@media screen and (min-width:576px) {
-    .is-disabled-md {
-        display: none;
-    }
+.wrapper{
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 80px;
+    box-sizing: border-box;
 }
 a.text_link {
     color: #1d3994;
@@ -197,6 +198,9 @@ a.site-logo {
  * footer 
  * ================================================== */
  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     background-color: #F7E4E4;
     text-align: center;
     padding: .3rem;
@@ -573,9 +577,6 @@ a.topic-user-name:hover {
 /* ==================================================
  * カテゴリ一覧(category)
  * ================================================== */
-.category {
-    padding: 0;
-}
 .category-headline {
     text-align: center;
     padding: 20px 0;
@@ -600,9 +601,6 @@ a.topic-user-name:hover {
     font-size: 14px;
 }
 @media screen and (min-width:576px) {
-    .category {
-        padding: 0 0 100px;
-    }
     .category-headline {
         padding: 15px 0 25px;
         background-position: center top;
@@ -618,7 +616,7 @@ a.topic-user-name:hover {
 
 /* カテゴリー一覧 */
 .category-list-wrap {
-    margin: 20px auto 40px;
+    margin: 20px auto 0;
     text-align: center;
 }
 @media (min-width: 992px) {.category-list-wrap {max-width: 960px;}}
