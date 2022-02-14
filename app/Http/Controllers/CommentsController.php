@@ -36,11 +36,6 @@ class CommentsController extends Controller
             // 「S3上の画像の場所」を元に、「Webページからアクセスできる画像のURL」を取得する
             $image_path = Storage::disk('s3')->url($s3_path);
         }
- 
-        // // idの値でカテゴリを検索して取得
-        // $category = Category::findOrFail($request->category_id);
-
-        $request->session()->put('categore_id', $id);
         
         // idの値でトピックを検索して取得
         $topic = Topic::findOrFail( $request->topic_id);
@@ -48,11 +43,10 @@ class CommentsController extends Controller
         // 対象となるトピックについて、認証済みユーザ（自分）のコメントとして投稿する
         $topic->comments()->create([
             'user_id' => \Auth::id(),
+            'category_id' => $topic->category_id,
             'content' => $request->content,
             'image_path' => $image_path,
             's3_path' => $s3_path,
-          
-   
         ]);
  
         // 前のURLへリダイレクトさせる
