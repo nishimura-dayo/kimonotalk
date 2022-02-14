@@ -19,7 +19,4 @@
             @include('categories.categories')
         </section>
     @endif
-    <footer>
-        <small>© 2021 webクリエイターの生活</small>
-    </footer>
 @endsection

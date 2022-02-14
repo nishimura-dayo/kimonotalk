@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Topic extends Model
 {
-    protected $fillable = ['content', 'image_path', 's3_path'];
+    protected $fillable = ['content', 'category_id', 'image_path', 's3_path'];
     
     /**
      * このトピックを所有するユーザ(Userモデルとの関係を定義)

@@ -5,26 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Topic;
+use App\Category;
 use Storage;
 
 class TopicsController extends Controller
 {
-    public function index()
-    {
-        $data = [];
-        if (\Auth::check()) { // エンドユーザが認証済みの場合
-            // 認証済みユーザを取得
-            $user = \Auth::user();
-            $topics = \App\Topic::orderBy('created_at', 'desc')->paginate(10);
-            $data = [
-                'user' => $user,
-                'topics' => $topics,
-            ];
-        }
+    // public function index()
+    // {
+    //     $data = [];
+    //     if (\Auth::check()) { // エンドユーザが認証済みの場合
+    //         // 認証済みユーザを取得
+    //         $user = \Auth::user();
+    //         $topics = \App\Topic::orderBy('created_at', 'desc')->paginate(10);
+    //         $data = [
+    //             'user' => $user,
+    //             'topics' => $topics,
+    //         ];
+    //     }
         
-        // トピック一覧ビューでそれらを表示
-        return view('topics.index', $data);
-    }
+    //     // トピック一覧ビューでそれらを表示
+    //     return view('topics.index', $data);
+    // }
     
     
     public function store(Request $request)
@@ -41,6 +42,7 @@ class TopicsController extends Controller
         // 画像が無い場合
         $image_path = null;
         $s3_path = null;
+        
 
         // 画像ファイルが送信されたか確認
         if ($request->hasFile('image_path')) {
@@ -51,12 +53,16 @@ class TopicsController extends Controller
             // 「S3上の画像の場所」を元に、「Webページからアクセスできる画像のURL」を取得する
             $image_path = Storage::disk('s3')->url($s3_path);
         }
+
+        // idの値でカテゴリを検索して取得
+        $category = Category::findOrFail($request->category_id);
         
         // 認証済みユーザ（閲覧者）の投稿として作成（リクエストされた値をもとに作成）
         $request->user()->topics()->create([
             'content' => $request->content,
             'image_path' => $image_path,
             's3_path' => $s3_path,
+            'category_id' => $category->id,
         ]);
 
         // 前のURLへリダイレクトさせる
@@ -89,7 +95,7 @@ class TopicsController extends Controller
             $topic->delete();
         }
        
-        // メッセージ作成ビューを表示
-        return redirect('topics');
+        // カテゴリ一覧を表示
+        return redirect('categories');
     }
 }

@@ -63,7 +63,7 @@
 
                     <div  class="text-center">
                         {{-- カテゴリ別トピック一覧ページへのリンク --}}
-                        {!! link_to_route('topics.index', 'トピック一覧を見る',[], ['class' => 'text_link']) !!}
+                        {!! link_to_route('categories.index', 'トピック一覧を見る',[], ['class' => 'text_link']) !!}
                     </div>
                 </div>
             </div>

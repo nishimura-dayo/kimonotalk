@@ -31,6 +31,7 @@
                 </div>
             </div>
             <div class="col-sm-9">
+                {!! link_to_route('categories.index', 'トピック一覧を見る', [], ['class'=> "btn-category"] ) !!}
                 {{-- トピック一覧 --}}
                 @include('topics.topics')
             </div>

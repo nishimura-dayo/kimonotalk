@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Comment;
 use App\Topic;
+use App\Category;
 use Storage;
 
 class CommentsController extends Controller
@@ -12,7 +14,6 @@ class CommentsController extends Controller
     
     public function store(Request $request)
     {
-        // dd($request->file('image_path')); // フォームから送信されたimage_pathをファイル形式で取得できるか
         // バリデーション
         $request->validate([
             'content' => 'required|max:6000',// contentフィールドは必須チェック、6000文字以内かをチェックする
@@ -28,27 +29,41 @@ class CommentsController extends Controller
         
         // 画像ファイルが送信されたか確認
         if ($request->hasFile('image_path')) {
-            
+          
             // S3に画像をアップロードし、「S3上の画像の場所」を取得する
             $s3_path = Storage::disk('s3')->putFile('kimonotalk-s3disk', $image, 'public');
            
             // 「S3上の画像の場所」を元に、「Webページからアクセスできる画像のURL」を取得する
             $image_path = Storage::disk('s3')->url($s3_path);
         }
-    
+ 
+        // // idの値でカテゴリを検索して取得
+        // $category = Category::findOrFail($request->category_id);
+
+        $request->session()->put('categore_id', $id);
+        
         // idの値でトピックを検索して取得
         $topic = Topic::findOrFail( $request->topic_id);
-        
+
         // 対象となるトピックについて、認証済みユーザ（自分）のコメントとして投稿する
         $topic->comments()->create([
             'user_id' => \Auth::id(),
             'content' => $request->content,
             'image_path' => $image_path,
             's3_path' => $s3_path,
+          
+   
         ]);
-
+ 
         // 前のURLへリダイレクトさせる
-        return back();
+        // return back();
+        
+
+        // return redirect()->route('user.show', ['id' => 100]);
+        
+        return redirect()->route('topics.show', [ 'topic' => $topic->id]); 
+        
+    
     }
 
     public function destroy($id)
@@ -64,5 +79,6 @@ class CommentsController extends Controller
 
         // 前のURLへリダイレクトさせる
         return back();
+        
     }
 }
