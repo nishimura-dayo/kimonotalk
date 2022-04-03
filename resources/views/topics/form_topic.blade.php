@@ -4,6 +4,9 @@
 {!! Form::open(['route' => 'topics.store','enctype'=>'multipart/form-data']) !!}
     <div class="form-graup">
         {!! Form::textarea('content', null, ['class' => 'form-textarea', 'rows' => '3', 'placeholder' => '気になることを書いてみてね♪']) !!}
+
+        <div class="view_box"></div>
+
         <div class="toolbar">
             {{-- アップロードフォームの作成--}}
             <label for="file" class="label-photo"><i class="fas fa-camera"></i></label>

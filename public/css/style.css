@@ -698,3 +698,44 @@ a.topic-user-name:hover {
         border-radius: 10px;
     }
 }
+
+
+/* プレビュー画像表示 */
+.view_box {
+    position: relative;
+    width: 200px;
+}
+/* 閉じるボタン*/
+.img_del {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background-color: #999;
+    color: #fff;
+    font-size: 16px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+.img_del::before, .img_del::after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 15px;
+    background: #fff;
+}
+.img_del::before {
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+.img_del::after {
+  transform: translate(-50%,-50%) rotate(-45deg);
+}
+.img_del:active{
+	transition: 0.2s;
+	transform: translate3d(0,3px,0);
+	box-shadow: none;
+}
