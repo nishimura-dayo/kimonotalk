@@ -5,6 +5,7 @@
     <div class="form-graup">
         {!! Form::textarea('content', null, ['class' => 'form-textarea', 'rows' => '2', 'placeholder' => 'コメントしてみる？']) !!}
         {{ Form::hidden('topic_id', $topic->id) }}
+        <div class="view_box"></div>
         <div class="toolbar">
             {{-- アップロードフォームの作成--}}
             <label for="file" class="label-photo"><i class="fas fa-camera"></i></label>
